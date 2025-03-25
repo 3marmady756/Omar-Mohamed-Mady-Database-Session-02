@@ -1,0 +1,97 @@
+
+### 1. 
+```sql
+SELECT * FROM Employees;
+```
+
+### 2. 
+```sql
+SELECT * FROM Employees WHERE CountryID = 1;
+```
+
+### 3. 
+```sql
+SELECT * FROM Employees WHERE DepartmentID = 3;
+```
+
+### 4. 
+```sql
+SELECT * FROM Employees WHERE Salary > 5000;
+```
+
+### 5. 
+```sql
+SELECT * FROM Employees WHERE YEAR(HireDate) > 2020;
+```
+
+### 6. 
+```sql
+SELECT * FROM Employees WHERE ExitDate IS NOT NULL;
+```
+
+### 7. 
+```sql
+SELECT * FROM Employees WHERE BonusPerc > 0.10;
+```
+
+## 🔹 Shop_Database Queries
+
+### 8. 
+```sql
+SELECT * FROM Customers CROSS JOIN Orders;
+```
+
+### 9. 
+```sql
+SELECT O.*, C.Name AS CustomerName FROM Orders O JOIN Customers C ON O.CustomerID = C.ID;
+```
+
+### 10. 
+```sql
+SELECT C.*, O.ID AS OrderID FROM Customers C LEFT JOIN Orders O ON C.ID = O.CustomerID;
+```
+
+### 11. 
+```sql
+SELECT O.*, C.Name AS CustomerName FROM Orders O LEFT JOIN Customers C ON O.CustomerID = C.ID;
+```
+
+### 12. 
+```sql
+SELECT C.*, O.* FROM Customers C FULL OUTER JOIN Orders O ON C.ID = O.CustomerID;
+```
+
+### 13. 
+```sql
+SELECT Name, COUNT(*) FROM Customers GROUP BY Name HAVING COUNT(*) > 1;
+```
+
+### 14. 
+```sql
+SELECT O.*, C.Name AS CustomerName FROM Orders O JOIN Customers C ON O.CustomerID = C.ID WHERE O.Amount > 500;
+```
+
+### 15. 
+```sql
+SELECT * FROM Customers WHERE ID NOT IN (SELECT DISTINCT CustomerID FROM Orders);
+```
+
+### 16. 
+```sql
+SELECT CustomerID, COUNT(*) AS OrderCount FROM Orders GROUP BY CustomerID;
+```
+
+### 17. 
+```sql
+SELECT CustomerID, SUM(Amount) AS TotalSpent FROM Orders GROUP BY CustomerID;
+```
+
+### 18. 
+```sql
+UPDATE Orders SET Amount = Amount * 1.10 WHERE CustomerID IN (SELECT ID FROM Customers WHERE Name = 'John Doe');
+```
+
+### 19. 
+```sql
+DELETE FROM Orders WHERE CustomerID NOT IN (SELECT ID FROM Customers);
+```
